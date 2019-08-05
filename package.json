@@ -4,11 +4,12 @@
   "description": "custom story format for twine",
   "scripts": {
     "build": "node --experimental-modules build.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm-watch"
   },
   "watch": {
     "build": "src/*"
-  }
+  },
   "author": "Elkie Nova",
   "license": "MIT",
   "devDependencies": {

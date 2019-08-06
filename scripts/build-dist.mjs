@@ -30,7 +30,7 @@ async function build() {
 
 	// writing as json will make sure all quotes in the source html property
 	// are properly escaped and won't break the resulting javascript file
-	fs.writeFileSync(
+	await fsp.writeFile(
 		'./dist/format.js',
 		'window.storyFormat(' + JSON.stringify(formatData) + ');'
 	);

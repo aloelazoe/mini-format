@@ -1,6 +1,6 @@
 {
   "name": "mini-format",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "custom story format for twine",
   "scripts": {
     "build": "node --experimental-modules scripts/build-dist.mjs",
@@ -8,7 +8,7 @@
     "watch": "npm-watch"
   },
   "watch": {
-    "build": "src/*"
+    "build-test": "src/*"
   },
   "author": "Elkie Nova",
   "license": "MIT",

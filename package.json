@@ -1,6 +1,6 @@
 {
   "name": "mini-format",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "custom story format for twine",
   "scripts": {
     "build": "node --experimental-modules scripts/build.mjs",

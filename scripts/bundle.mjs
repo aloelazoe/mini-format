@@ -1,23 +1,32 @@
 import rollup from "rollup";
 import nodeResolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
+import babelRoll from "rollup-plugin-babel";
 
 export async function bundle(src = '') {
-	// TODO: add rollup-plugin-babel for transpiling ES6
 	const inputOptions = {
 		input: src,
 		plugins: [
+			babelRoll({
+				exclude: 'node_modules/**'
+			}),
 			nodeResolve(),
-			commonjs()
+			commonjs(),
 		]
 	};
 
 	const outputOptions = {
-		format: "iife"
+		format: "iife",
+		output: {
+			file: './dist/main.js'
+		}
 	};
 
 	const bundle = await rollup.rollup(inputOptions);
-	const output = await bundle.generate(outputOptions);
+	const { output } = await bundle.generate(outputOptions);
 
-	return output.output[0].code;
+	// write bundle separately for testing
+	await bundle.write(outputOptions);
+
+	return output[0].code;
 }

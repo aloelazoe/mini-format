@@ -1,7 +1,6 @@
 import download from 'downloadjs';
 
 function main() {
-	// TODO: use rollup-plugin-babel in bundle.mjs for transpiling ES6
 	const storyDataElm = document.getElementsByTagName('tw-storydata')[0];
 	const passageElms = [...document.getElementsByTagName('tw-passagedata')];
 	const tagElms = [...document.getElementsByTagName('tw-tag')];
@@ -30,7 +29,7 @@ function main() {
 		});
 	});
 
-	// avoid the last two arguments of JSON.stringify to produce condensesd json
+	// avoid the last two arguments of JSON.stringify to produce condensed json
 	download(JSON.stringify(data, null, 2), data.name + '.json', 'application/json');
 }
 

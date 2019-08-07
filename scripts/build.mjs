@@ -12,14 +12,9 @@ async function build() {
 	const script = await bundle('./src/main.js');
 	var sourceHTML = await fsp.readFile('./template/template.html', 'utf8');
 
-	// minifyJS doesn't work with es6 syntax
-	// TODO: use uglify preferably as an html-minifier option after integrating babel transpiler
-	// var uglifyResult = minifyJS(script);
-	// if (uglifyResult.error) throw uglifyResult.error;
-	// console.log(uglifyResult.code);
 	sourceHTML = sourceHTML.replace('{{SCRIPT}}', script);
 	sourceHTML = minify(sourceHTML, {
-		// minifyJS: true,
+		minifyJS: true,
 		collapseWhitespace: true
 	});
 
@@ -43,8 +38,6 @@ async function build() {
 		'./dist/format.js',
 		'window.storyFormat(' + JSON.stringify(formatData) + ');'
 	);
-	// also write javascript separately for testing
-	await fsp.writeFile('./dist/main.js', script);
 }
 
 build()

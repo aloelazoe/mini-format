@@ -3,6 +3,7 @@ import nodeResolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 
 export async function bundle(src = '') {
+	// TODO: add rollup-plugin-babel for transpiling ES6
 	const inputOptions = {
 		input: src,
 		plugins: [
